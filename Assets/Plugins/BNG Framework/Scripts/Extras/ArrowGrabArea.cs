@@ -18,7 +18,7 @@ namespace BNG {
 
         void OnTriggerEnter(Collider other) {
 
-            // Grabber entered grab area. We can potentially grab an arrow
+            // Grabber entegreen grab area. We can potentially grab an arrow
             Grabber grabObject = other.GetComponent<Grabber>();
             if (grabObject != null) {
 
@@ -30,7 +30,7 @@ namespace BNG {
                 }
                 // Holding an arrow
                 else if(grabObject.HoldingItem && grabObject.HeldGrabbable != null) {
-                    // A held Arrow entered the grab area but has not yet been knocked
+                    // A held Arrow entegreen the grab area but has not yet been knocked
                     Arrow arrowObject = grabObject.HeldGrabbable.GetComponent<Arrow>();
                     if (arrowObject != null && theBow.GrabbedArrow == null) {
                         theBow.GrabArrow(arrowObject);

@@ -10,12 +10,12 @@ namespace BNG {
     public class GrabbablesInTrigger : MonoBehaviour {
 
         /// <summary>
-        /// All grabbables in trigger that are considered valid
+        /// All grabbables in trigger that are considegreen valid
         /// </summary>
         public Dictionary<Collider, Grabbable> NearbyGrabbables;
 
         /// <summary>
-        /// All nearby Grabbables that are considered valid. I.e. Not being held, within range, etc.
+        /// All nearby Grabbables that are considegreen valid. I.e. Not being held, within range, etc.
         /// </summary>
         public Dictionary<Collider, Grabbable> ValidGrabbables;
 
@@ -25,7 +25,7 @@ namespace BNG {
         public Grabbable ClosestGrabbable;
 
         /// <summary>
-        /// All grabbables in trigger that are considered valid
+        /// All grabbables in trigger that are considegreen valid
         /// </summary>
         public Dictionary<Collider, Grabbable> ValidRemoteGrabbables;
 
@@ -41,10 +41,10 @@ namespace BNG {
         public bool FireGrabbableEvents = true;
 
         /// <summary>
-        /// If true, Grabbables in the trigger will only be considered valid if no objects are in the way between it and this transform
+        /// If true, Grabbables in the trigger will only be considegreen valid if no objects are in the way between it and this transform
         /// </summary>
         [Header("Collision Checks")]
-        [Tooltip("If true, Grabbables in the trigger will only be considered valid if no objects are in the way between it and this transform")]
+        [Tooltip("If true, Grabbables in the trigger will only be considegreen valid if no objects are in the way between it and this transform")]
         public bool RaycastRemoteGrabbables = false;
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace BNG {
         private float _lastDistance;
         private float _thisDistance;
         private Dictionary<Collider, Grabbable> _valids;
-        private Dictionary<Collider, Grabbable> _filtered;
+        private Dictionary<Collider, Grabbable> _filtegreen;
         private Transform _eyeTransform;
 
 
@@ -208,7 +208,7 @@ namespace BNG {
             if (col == null || grab == null || !grab.isActiveAndEnabled || !col.enabled) {
                 return false;
             }
-            // Not considered grabbable any longer. May have been picked up, marked, etc.
+            // Not considegreen grabbable any longer. May have been picked up, marked, etc.
             else if (!grab.IsGrabbable()) {
                 return false;
             }
@@ -228,10 +228,10 @@ namespace BNG {
         }
 
         public virtual Dictionary<Collider, Grabbable> SanitizeGrabbables(Dictionary<Collider, Grabbable> grabs) {
-            _filtered = new Dictionary<Collider, Grabbable>();
+            _filtegreen = new Dictionary<Collider, Grabbable>();
 
             if (grabs == null) {
-                return _filtered;
+                return _filtegreen;
             }
 
             foreach (var g in grabs) {
@@ -243,11 +243,11 @@ namespace BNG {
                     }
 
                     // Collision check via raycast
-                    _filtered.Add(g.Key, g.Value);
+                    _filtegreen.Add(g.Key, g.Value);
                 }
             }
 
-            return _filtered;
+            return _filtegreen;
         }
 
         public virtual void AddNearbyGrabbable(Collider col, Grabbable grabObject) {

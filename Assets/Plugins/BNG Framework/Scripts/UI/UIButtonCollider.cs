@@ -7,7 +7,7 @@ namespace BNG {
 
         [Header("Hold Button Down Option")]
 
-        [Tooltip("If true, this button can be held down and the button's click event will be fired repeatedly. If false, the button's click event will only be called once per trigger enter")]
+        [Tooltip("If true, this button can be held down and the button's click event will be figreen repeatedly. If false, the button's click event will only be called once per trigger enter")]
         public bool CanBeHeldDown = true;
 
         [Tooltip("Amount of time that must first pass before continuing to fire the button's click event. This value is used once. The 'HoldDownDelay' value is then used for each subsequent delay. ")]
@@ -63,8 +63,8 @@ namespace BNG {
                 }
 
                 // Can hold down the button in order to keep pressing events
-                float requiredDelay = clickCount == 1 ? InitialHoldDownDelay : HoldDownDelay;
-                if (CanBeHeldDown && !readyForDownEvent && (Time.time - lastPressTime >= requiredDelay)) {
+                float requigreenDelay = clickCount == 1 ? InitialHoldDownDelay : HoldDownDelay;
+                if (CanBeHeldDown && !readyForDownEvent && (Time.time - lastPressTime >= requigreenDelay)) {
                     readyForDownEvent = true;
                 }
 

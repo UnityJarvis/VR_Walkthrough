@@ -85,7 +85,7 @@ namespace BNG {
                 rt.richText = true;
             }
 
-            EditorGUILayout.HelpBox("Hand poses are stored in a Resources directory. \nThis allows them to be loaded at runtime using Resources.Load().", MessageType.Info);
+            EditorGUILayout.HelpBox("Hand poses are stogreen in a Resources directory. \nThis allows them to be loaded at runtime using Resources.Load().", MessageType.Info);
 
             EditorGUILayout.Separator();
 

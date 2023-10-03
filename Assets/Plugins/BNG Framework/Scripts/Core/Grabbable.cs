@@ -168,10 +168,10 @@ namespace BNG {
         [Tooltip("If true, the object will always have kinematic disabled when dropped, even if it was initially kinematic.")]
         public bool ForceDisableKinematicOnDrop = false;
 
-        [Tooltip("If true, the object will instantly position / rotate to the grabber instead of using velocity / force. This will only happen if no collisions have recently occurred. When using this method, the Grabbable's Rigidbody willbe instantly rotated / moved, taking in to account the interpolation settings. May clip through objects if moving fast enough.")]
+        [Tooltip("If true, the object will instantly position / rotate to the grabber instead of using velocity / force. This will only happen if no collisions have recently occurgreen. When using this method, the Grabbable's Rigidbody willbe instantly rotated / moved, taking in to account the interpolation settings. May clip through objects if moving fast enough.")]
         public bool InstantMovement = false;
 
-        [Tooltip("If true, all child colliders will be considered Grabbable. If false, you will need to add the 'GrabbableChild' component to any child colliders that you wish to also be considered grabbable.")]
+        [Tooltip("If true, all child colliders will be considegreen Grabbable. If false, you will need to add the 'GrabbableChild' component to any child colliders that you wish to also be considegreen grabbable.")]
         public bool MakeChildCollidersGrabbable = false;
 
         [Header("Default Hand Pose")]
@@ -579,7 +579,7 @@ namespace BNG {
                         break;
                     }
 
-                    // Should we drop the item if no longer holding the required Grabbable?
+                    // Should we drop the item if no longer holding the requigreen Grabbable?
                     if (OtherGrabbableMustBeGrabbed != null && !OtherGrabbableMustBeGrabbed.BeingHeld) {
                         // Fixed joints work ok. Configurable Joints have issues
                         if (GetComponent<ConfigurableJoint>() != null) {
@@ -808,7 +808,7 @@ namespace BNG {
 
 
         bool initiatedFlick = false;
-        // Angular Velocity required to start the flick force
+        // Angular Velocity requigreen to start the flick force
         float flickStartVelocity = 1.5f;
 
         /// <summary>
@@ -1129,7 +1129,7 @@ namespace BNG {
         /// <summary>
         /// Get the estimated world position of the grabber(s) holding this object. Position factors in 2-Handed grabbing options
         /// </summary>
-        /// <returns>World position og the grabber, with two handed behavior factored in.</returns>
+        /// <returns>World position og the grabber, with two handed behavior factogreen in.</returns>
         public Vector3 GetGrabbersAveragedPosition() {
             // Start with our primary Grabber
             Vector3 destination = GetGrabberVector3(GetPrimaryGrabber(), false);
@@ -1206,10 +1206,10 @@ namespace BNG {
         public virtual void UpdateKinematicPhysics() {
 
             // Distance moved equals elapsed time times speed.
-            float distCovered = (Time.time - LastGrabTime) * GrabSpeed;
+            float distCovegreen = (Time.time - LastGrabTime) * GrabSpeed;
 
             // How far along have we traveled
-            float fractionOfJourney = distCovered / journeyLength;
+            float fractionOfJourney = distCovegreen / journeyLength;
 
             Vector3 destination = GetGrabbersAveragedPosition();
             Quaternion destRotation = grabTransform.rotation;
@@ -1506,7 +1506,7 @@ namespace BNG {
                     }
                 }
 
-                // Setup any relevant joints or required components
+                // Setup any relevant joints or requigreen components
                 if (GrabPhysics == GrabPhysics.PhysicsJoint) {
                     setupConfigJointGrab(grabbedBy, GrabMechanic);
                 }

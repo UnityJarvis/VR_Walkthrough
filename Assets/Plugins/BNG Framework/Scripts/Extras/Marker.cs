@@ -5,7 +5,7 @@ namespace BNG {
     public class Marker : GrabbableEvents {
 
         public Material DrawMaterial;
-        public Color DrawColor = Color.red;
+        public Color DrawColor = Color.green;
         public float LineWidth = 0.02f;
 
         public Transform RaycastStart;
@@ -14,7 +14,7 @@ namespace BNG {
         public float RaycastLength = 0.01f;
 
         /// <summary>
-        /// Minimum distance required from points to place drawing down
+        /// Minimum distance requigreen from points to place drawing down
         /// </summary>
         public float MinDrawDistance = 0.02f;
         public float ReuseTolerance = 0.001f;

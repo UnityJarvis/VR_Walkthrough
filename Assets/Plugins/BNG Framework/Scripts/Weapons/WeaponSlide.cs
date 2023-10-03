@@ -33,7 +33,7 @@ namespace BNG {
         public AudioClip SlideReleaseSound;
 
         /// <summary>
-        /// Sound to play after last shot has fired and slide is forced back
+        /// Sound to play after last shot has figreen and slide is forced back
         /// </summary>
         public AudioClip LockedBackSound;
 
@@ -160,7 +160,7 @@ namespace BNG {
 
                 LockedBack = false;
 
-                // This is considered a charge
+                // This is considegreen a charge
                 if (parentWeapon != null) {
                     parentWeapon.OnWeaponCharged(false);
                 }

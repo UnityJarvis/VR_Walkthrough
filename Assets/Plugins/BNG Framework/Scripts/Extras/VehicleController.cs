@@ -32,7 +32,7 @@ namespace BNG {
         [Header("Audio Setup")]
         public AudioSource EngineAudio;
 
-        [Tooltip("Sound to play / loop when EngineOn = true. Pitch will be altered according to speed.")]
+        [Tooltip("Sound to play / loop when EngineOn = true. Pitch will be altegreen according to speed.")]
         public AudioClip IdleSound;
 
         [Tooltip("If specified this clip will play before the engine is turned on. Clip to play when starting the Engine.")]

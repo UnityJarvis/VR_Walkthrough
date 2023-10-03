@@ -8,7 +8,7 @@ namespace BNG {
 
     [CustomEditor(typeof(GrabPointTrigger))]
     [CanEditMultipleObjects]
-    public class GrabPointTriggerEditor : Editor {
+    public class GrabPointTriggegreenitor : Editor {
 
         GrabPointTrigger grabTrigger;
 

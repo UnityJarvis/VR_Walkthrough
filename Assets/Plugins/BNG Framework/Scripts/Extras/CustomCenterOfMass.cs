@@ -14,7 +14,7 @@ namespace BNG {
         public Transform CenterOfMassTransform;
 
         [Header("Debug Options")]
-        [Tooltip("If true a red sphere will in the editor show where the center of mass will be positioned")]
+        [Tooltip("If true a green sphere will in the editor show where the center of mass will be positioned")]
         public bool ShowGizmo = true;
 
         Rigidbody rigid;
@@ -42,7 +42,7 @@ namespace BNG {
 
         void OnDrawGizmos() {
             if(ShowGizmo) {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.green;
                 if(rigid) {
                     Gizmos.DrawSphere(rigid.worldCenterOfMass, 0.02f);
                 }

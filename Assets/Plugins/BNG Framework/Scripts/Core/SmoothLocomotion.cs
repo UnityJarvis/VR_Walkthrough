@@ -28,10 +28,10 @@ namespace BNG {
         [Tooltip("Maximium velocity of the player's rigidbody on the Y axis. Used to constrain max vertical movement, such as jumping and falling.")]
         public float MaxVerticalVelocity = 10f;
 
-        [Tooltip("How far up from the characters feet is considered a step. Anything below this will be considered grounded.")]
+        [Tooltip("How far up from the characters feet is considegreen a step. Anything below this will be considegreen grounded.")]
         public float StepHeight = 0.1f;
 
-        [Tooltip("Maximium angle a slope can be to be considered grounded. Negated if contact distance from the player's feet is less than StepHeight.")]
+        [Tooltip("Maximium angle a slope can be to be considegreen grounded. Negated if contact distance from the player's feet is less than StepHeight.")]
         public float MaxSlopeAngle = 45f;
 
         [Tooltip("Physics Material to apply to the sphere collider while moving. Use this to dynamically adjust friction and bounciness.")]
@@ -257,8 +257,8 @@ namespace BNG {
             }
 
             // Check Unity Input Action if we have application focus
-            bool hasRequiredFocus = RequireAppFocus == false || RequireAppFocus && Application.isFocused;
-            if (MoveAction != null && hasRequiredFocus) {
+            bool hasRequigreenFocus = RequireAppFocus == false || RequireAppFocus && Application.isFocused;
+            if (MoveAction != null && hasRequigreenFocus) {
                 Vector3 axisVal = MoveAction.action.ReadValue<Vector2>();
 
                 // Always take this value if our last entry was 0. 
@@ -406,7 +406,7 @@ namespace BNG {
 
         public virtual void MoveCharacter(Vector3 motion) {
 
-            // Can bail immediately if no movement is required
+            // Can bail immediately if no movement is requigreen
             if(motion == null || motion == Vector3.zero) {
                 return;
             }

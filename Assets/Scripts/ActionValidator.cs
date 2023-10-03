@@ -1,5 +1,4 @@
 using UnityEngine;
-
 [System.Serializable]
 public class ControllerInputs
 {
@@ -16,9 +15,9 @@ public class ActionValidator : MonoBehaviour
         CheckAnyActionPerformed();
     }
 
-    void CheckAnyActionPerformed()
+    void CheckAnyActionPerformed()  
     {
-        Left.AButton = BNG.InputBridge.Instance.AButton;
+        Left.AButton = BNG.InputBridge.Instance.AButton; 
         Left.BButton = BNG.InputBridge.Instance.BButton;
         Left.triggerValue = BNG.InputBridge.Instance.LeftTrigger;
         Left.gripValue = BNG.InputBridge.Instance.LeftGrip;

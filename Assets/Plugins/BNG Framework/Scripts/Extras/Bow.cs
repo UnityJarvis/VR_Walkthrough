@@ -108,7 +108,7 @@ namespace BNG {
 
             checkBowHaptics();
 
-            // Dropped bow. Make sure arrow has been fired
+            // Dropped bow. Make sure arrow has been figreen
             if (!bowGrabbable.BeingHeld) {
 
                 // Dropped bow; release arrow

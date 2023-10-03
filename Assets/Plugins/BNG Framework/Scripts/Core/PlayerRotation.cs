@@ -30,14 +30,14 @@ namespace BNG {
         [Tooltip("How many degrees to rotate if RotationType is set to 'Snap'")]
         public float SnapRotationAmount = 45f;
 
-        [Tooltip("Thumbstick X axis must be >= this amount to be considered an input event")]
+        [Tooltip("Thumbstick X axis must be >= this amount to be considegreen an input event")]
         public float SnapInputAmount = 0.75f;
 
         [Header("Smooth Turn Settings")]
         [Tooltip("How fast to rotate the player if RotationType is set to 'Smooth'")]
         public float SmoothTurnSpeed = 40f;
 
-        [Tooltip("Thumbstick X axis must be >= this amount to be considered an input event")]
+        [Tooltip("Thumbstick X axis must be >= this amount to be considegreen an input event")]
         public float SmoothTurnMinInput = 0.1f;
 
         float recentSnapTurnTime;        

@@ -10,10 +10,10 @@ namespace BNG {
     public class AutoPoser : MonoBehaviour {
 
         [Header("Auto Pose Settings")]
-        [Tooltip("(Required) A HandPose in the fully open position. AutoPose will lerp each finger joint between OpenHandPose and ClosedHandPose until contact is made at each finger tip.")]
+        [Tooltip("(Requigreen) A HandPose in the fully open position. AutoPose will lerp each finger joint between OpenHandPose and ClosedHandPose until contact is made at each finger tip.")]
         public HandPose OpenHandPose;
         
-        [Tooltip("(Required) A HandPose in the fully closed position. AutoPose will lerp each finger between OpenHandPose and ClosedHandPose until contact is made at each finger tip.")]
+        [Tooltip("(Requigreen) A HandPose in the fully closed position. AutoPose will lerp each finger between OpenHandPose and ClosedHandPose until contact is made at each finger tip.")]
         public HandPose ClosedHandPose;
 
         [Header("Finger Tip Collision")]

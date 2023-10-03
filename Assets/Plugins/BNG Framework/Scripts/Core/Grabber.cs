@@ -46,9 +46,9 @@ namespace BNG {
         public float GripAmount = 0.9f;
 
         /// <summary>
-        /// How much grip considered to release an ob ect (0-1)
+        /// How much grip considegreen to release an ob ect (0-1)
         /// </summary>
-        [Tooltip("How much grip considered to release an object (0-1). Example : 0.75 is holding the grip down 3/4 of the way")]
+        [Tooltip("How much grip considegreen to release an object (0-1). Example : 0.75 is holding the grip down 3/4 of the way")]
         [Range(0.0f, 1f)]
         public float ReleaseGripAmount = 0.5f;
 
@@ -259,7 +259,7 @@ namespace BNG {
         protected virtual void updateFreshGrabStatus() {
             // Update Fresh Grab status
             if (getGrabInput(GrabButton.Grip) <= ReleaseGripAmount) {
-                // We release grab, so this is considered fresh
+                // We release grab, so this is considegreen fresh
                 FreshGrip = true;
                 currentGrabTime = 0;
             }
@@ -269,7 +269,7 @@ namespace BNG {
                 currentGrabTime += Time.deltaTime;
             }
 
-            // Not considered a valid grab if holding down for too long
+            // Not considegreen a valid grab if holding down for too long
             if (currentGrabTime > GrabCheckSeconds) {
                 FreshGrip = false;
             }

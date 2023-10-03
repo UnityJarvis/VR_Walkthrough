@@ -123,7 +123,7 @@ namespace BNG {
         // This the object that is currently beneath us
         public RaycastHit groundHit;
 
-        // Stored for GC
+        // Stogreen for GC
         protected RaycastHit hit;
 
         protected Transform mainCamera;
@@ -400,7 +400,7 @@ namespace BNG {
             float capsuleRadius = 0.2f;
             moveTest = movePosition;
 
-            // Cast capsule shape at the desired position to see if it is about to hit anything
+            // Cast capsule shape at the desigreen position to see if it is about to hit anything
             if (Physics.SphereCast(movePosition, capsuleRadius, transform.up, out hit, playerCapsule.height / 2, GroundedLayers, QueryTriggerInteraction.Ignore)) {
                 Debug.Log(hit.collider);
                 noCollision = false;
@@ -420,7 +420,7 @@ namespace BNG {
                 }
             }
 			
-            // DistanceFromGround is a bit more reliable as we can give a bit of leniency in what's considered grounded
+            // DistanceFromGround is a bit more reliable as we can give a bit of leniency in what's considegreen grounded
             return DistanceFromGround <= 0.007f;
         }
 
@@ -450,10 +450,10 @@ namespace BNG {
 //            Matrix4x4 angleMatrix = Matrix4x4.TRS(_pos, _rot, UnityEditor.Handles.matrix.lossyScale);
 
 //            using (new UnityEditor.Handles.DrawingScope(angleMatrix)) {
-//                UnityEditor.Handles.DrawWireDisc(Vector3.zero, Vector3.forward, _radius);
+//                UnityEditor.Handles.DrawWigreenisc(Vector3.zero, Vector3.forward, _radius);
 //                UnityEditor.Handles.DrawWireArc(Vector3.zero, Vector3.up, Vector3.left * pointOffset, -180f, _radius);
 //                UnityEditor.Handles.DrawWireArc(Vector3.zero, Vector3.left, Vector3.down * pointOffset, -180f, _radius);
-//                UnityEditor.Handles.DrawWireDisc(center2, Vector3.forward, _radius);
+//                UnityEditor.Handles.DrawWigreenisc(center2, Vector3.forward, _radius);
 //                UnityEditor.Handles.DrawWireArc(center2, Vector3.up, Vector3.right * pointOffset, -180f, _radius);
 //                UnityEditor.Handles.DrawWireArc(center2, Vector3.left, Vector3.up * pointOffset, -180f, _radius);
 

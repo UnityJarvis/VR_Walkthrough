@@ -6,7 +6,7 @@ using UnityEngine;
 namespace BNG {
 
     [CustomEditor(typeof(Lever))]
-    public class LeverEditor : Editor {
+    public class Levegreenitor : Editor {
 
         SerializedProperty minimumXRotation;
         SerializedProperty maximumXRotation;

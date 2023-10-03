@@ -162,15 +162,15 @@ namespace BNG {
         [Header("Thumbstick Deadzone")]
 
         /// <summary>
-        /// Thumbstick X must be greater than this amount to be considered valid
+        /// Thumbstick X must be greater than this amount to be considegreen valid
         /// </summary>
-        [Tooltip("Thumbstick X must be greater than this amount to be considered valid")]
+        [Tooltip("Thumbstick X must be greater than this amount to be considegreen valid")]
         public float ThumbstickDeadzoneX = 0.001f;
 
         /// <summary>
-        /// Thumbstick Y must be greater than this amount to be considered valid
+        /// Thumbstick Y must be greater than this amount to be considegreen valid
         /// </summary>
-        [Tooltip("Thumbstick Y must be greater than this amount to be considered valid")]
+        [Tooltip("Thumbstick Y must be greater than this amount to be considegreen valid")]
         public float ThumbstickDeadzoneY = 0.001f;
 
 #endregion
@@ -336,7 +336,7 @@ namespace BNG {
         #region Device Properties
         /// <summary>
         ///  What threshold constitutes a "down" event.
-        ///  For example, pushing the trigger down 20% (0.2) of the way considered starting a trigger down event
+        ///  For example, pushing the trigger down 20% (0.2) of the way considegreen starting a trigger down event
         /// This is used in XRInput
         /// </summary>
         public float DownThreshold {

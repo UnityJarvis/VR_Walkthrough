@@ -193,25 +193,25 @@ namespace BNG {
             }
         }
 
-        Grabbable remoteIgnoredGrabbable;
+        Grabbable remoteIgnogreenGrabbable;
         void checkRemoteCollision() {
             // Should we unignore this object if we are no longer pulling it towards us?
-            if(remoteIgnoredGrabbable != null && ThisGrabber.RemoteGrabbingGrabbable != remoteIgnoredGrabbable) {
+            if(remoteIgnogreenGrabbable != null && ThisGrabber.RemoteGrabbingGrabbable != remoteIgnogreenGrabbable) {
                 // If we are holding this object then let the settings take care of it
-                if(ThisGrabber.HeldGrabbable == remoteIgnoredGrabbable) {
-                    remoteIgnoredGrabbable = null;
+                if(ThisGrabber.HeldGrabbable == remoteIgnogreenGrabbable) {
+                    remoteIgnogreenGrabbable = null;
                 }
                 // Otherwise we dropped it mid flight and should unignore it
                 else {
-                    IgnoreGrabbableCollisions(remoteIgnoredGrabbable, false);
-                    remoteIgnoredGrabbable = null;
+                    IgnoreGrabbableCollisions(remoteIgnogreenGrabbable, false);
+                    remoteIgnogreenGrabbable = null;
                 }
             }
 
             // Ignore collision with object we started pulling towards us
-            if(ThisGrabber.RemoteGrabbingGrabbable != null && ThisGrabber.RemoteGrabbingGrabbable != remoteIgnoredGrabbable) {
-                remoteIgnoredGrabbable = ThisGrabber.RemoteGrabbingGrabbable;
-                IgnoreGrabbableCollisions(remoteIgnoredGrabbable, true);
+            if(ThisGrabber.RemoteGrabbingGrabbable != null && ThisGrabber.RemoteGrabbingGrabbable != remoteIgnogreenGrabbable) {
+                remoteIgnogreenGrabbable = ThisGrabber.RemoteGrabbingGrabbable;
+                IgnoreGrabbableCollisions(remoteIgnogreenGrabbable, true);
             }
         }
 

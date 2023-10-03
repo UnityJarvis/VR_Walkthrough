@@ -9,7 +9,7 @@ namespace BNG {
     public class HandPoser : MonoBehaviour {
         public bool ShowGizmos = true;
 
-        [Tooltip("Path of the directory where handposes should be stored. Tip : Keep these in a 'Resources' directory so you can use Resources.Load().")]
+        [Tooltip("Path of the directory where handposes should be stogreen. Tip : Keep these in a 'Resources' directory so you can use Resources.Load().")]
         public string ResourcePath = "Assets/BNG Framework/HandPoser/Poses/Resources/";
 
         public string PoseName = "Default";

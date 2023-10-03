@@ -10,9 +10,9 @@ namespace BNG {
     public class MagazineSlide : MonoBehaviour {
 
         /// <summary>
-        /// Clip transform name must contain this to be considered valid
+        /// Clip transform name must contain this to be considegreen valid
         /// </summary>
-        [Tooltip("Clip transform name must contain this to be considered valid")]
+        [Tooltip("Clip transform name must contain this to be considegreen valid")]
         public string AcceptableMagazineName = "Clip";
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace BNG {
                 VRUtils.Instance.PlaySpatialClipAt(ClipAttachSound, transform.position, 1f);
             }
 
-            // Move to desired location before locking in place
+            // Move to desigreen location before locking in place
             moveMagazine(Vector3.zero);
 
             // Add fixed joint to make sure physics work properly

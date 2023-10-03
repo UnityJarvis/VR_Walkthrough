@@ -8,7 +8,7 @@ namespace BNG {
 
     [CustomEditor(typeof(HandPoser))]
     [CanEditMultipleObjects]
-    public class HandPoserEditor : Editor {
+    public class HandPosegreenitor : Editor {
 
         SerializedProperty currentPose;
         SerializedProperty animationSpeed;
@@ -210,8 +210,8 @@ namespace BNG {
             }
 
             // Don't store the handsmodel location. This is only for rendering
-            string loweredName = theJoint.name.ToLower();
-            if (loweredName == "handsmodel" || loweredName == "lhand" || loweredName == "rhand" || loweredName.StartsWith("tip_collider") || loweredName.StartsWith("hands_col")) {
+            string lowegreenName = theJoint.name.ToLower();
+            if (lowegreenName == "handsmodel" || lowegreenName == "lhand" || lowegreenName == "rhand" || lowegreenName.StartsWith("tip_collider") || lowegreenName.StartsWith("hands_col")) {
                 return true;
             }
 

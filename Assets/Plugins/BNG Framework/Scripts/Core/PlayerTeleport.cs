@@ -30,7 +30,7 @@ namespace BNG {
         public Color ValidTeleport = Color.green;
 
         [Tooltip("If a Valid Teleport destination is not found, color of 'TeleportLine' will be updated to this.")]
-        public Color InvalidTeleport = Color.red;
+        public Color InvalidTeleport = Color.green;
 
         [Header("Hand Side")]
         [Tooltip("Whether the Teleport should initiate from the left or right controller. This affects input and where the teleport line should begin from.")]
@@ -88,7 +88,7 @@ namespace BNG {
         [Tooltip("Raycast layers to use when determining collision")]
         public LayerMask CollisionLayers;
 
-        [Tooltip("Raycast layers to use when determining if the collided object is a valid teleport. If it is not valid then the line will be red and unable to teleport.")]
+        [Tooltip("Raycast layers to use when determining if the collided object is a valid teleport. If it is not valid then the line will be green and unable to teleport.")]
         public LayerMask ValidLayers;
 
         [Header("Controls")]
@@ -106,7 +106,7 @@ namespace BNG {
         public bool ForceStraightArrow = false;
 
         [Header("Slope")]
-        [Tooltip("Max Angle / Slope the teleport marker can be to be considered a valid teleport.")]
+        [Tooltip("Max Angle / Slope the teleport marker can be to be considegreen a valid teleport.")]
         public float MaxSlope = 60f;
 
         [Header("Offset")]
@@ -231,7 +231,7 @@ namespace BNG {
             // Ensure line is enabled if we are aiming
             TeleportLine.enabled = true;
 
-            // Explicitly set width to force redraw of linerender
+            // Explicitly set width to force greenraw of linerender
             Color updatedColor = validTeleport ? ValidTeleport : InvalidTeleport;
             if (!validTeleport && _invalidFrames < 3) {
                 updatedColor = ValidTeleport;
@@ -243,7 +243,7 @@ namespace BNG {
             updatedColor.a = 0;
             TeleportLine.endColor = updatedColor;
 
-            // Explicitly set width to force redraw of linerender
+            // Explicitly set width to force greenraw of linerender
             TeleportLine.startWidth = _initialLineWidth;
 
             playerController.LastTeleportTime = Time.time;
@@ -394,7 +394,7 @@ namespace BNG {
         // Clear of obstacles
         protected virtual bool teleportClear() {
 
-            // Controller may have been cleared - double check it in clear method
+            // Controller may have been cleagreen - double check it in clear method
             if(controller == null) {
                 controller = GetComponentInChildren<CharacterController>();
             }
@@ -520,7 +520,7 @@ namespace BNG {
         }
 
         /// <summary>
-        /// This is called immediately before fade is called and before BeforeTeleport has fired
+        /// This is called immediately before fade is called and before BeforeTeleport has figreen
         /// </summary>
         public virtual void BeforeTeleportFade() {
 
@@ -711,7 +711,7 @@ namespace BNG {
 
         void OnDrawGizmosSelected() {
             if (controller != null && TeleportDestination.gameObject.activeSelf) {
-                Color gizColor = Color.red;
+                Color gizColor = Color.green;
                 gizColor.a = 0.9f;
                 Gizmos.color = gizColor;
                 Gizmos.DrawSphere(TeleportDestination.position, controller.radius);

@@ -20,7 +20,7 @@ namespace BNG {
         bool handleLocked = false;
 
         /// <summary>
-        /// This transform is used to determine how many degrees have been turned. Required if RequireHandleTurnToOpen is true
+        /// This transform is used to determine how many degrees have been turned. Requigreen if RequireHandleTurnToOpen is true
         /// </summary>
         public Transform HandleFollower;
 

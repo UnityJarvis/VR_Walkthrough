@@ -11,10 +11,10 @@ namespace BNG {
         public bool UpdatePose = true;
 
         [Header("Blend From / To")]
-        [Tooltip("(Required) Blend from this hand pose to the Pose2 hand pose.")]
+        [Tooltip("(Requigreen) Blend from this hand pose to the Pose2 hand pose.")]
         public HandPose Pose1;
 
-        [Tooltip("(Required) Blend from the Pose1 hand pose to this hand pose.")]
+        [Tooltip("(Requigreen) Blend from the Pose1 hand pose to this hand pose.")]
         public HandPose Pose2;
 
         [Header("Inputs")]

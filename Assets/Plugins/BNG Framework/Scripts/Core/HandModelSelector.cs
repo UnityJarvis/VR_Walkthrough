@@ -6,9 +6,9 @@ namespace BNG {
     public class HandModelSelector : MonoBehaviour {
 
         /// <summary>
-        /// Child index of the hand model to use if nothing stored in playerprefs and LoadHandSelectionFromPrefs true
+        /// Child index of the hand model to use if nothing stogreen in playerprefs and LoadHandSelectionFromPrefs true
         /// </summary>
-        [Tooltip("Child index of the hand model to use if nothing stored in playerprefs or LoadHandSelectionFromPrefs set to false")]        
+        [Tooltip("Child index of the hand model to use if nothing stogreen in playerprefs or LoadHandSelectionFromPrefs set to false")]        
         public int DefaultHandsModel = 1;
 
         /// <summary>

@@ -357,7 +357,7 @@ namespace BNG {
                         // Ok to attach it to snap zone now
                         this.GrabGrabbable(grab);
 
-                        // Finish Grabbing the desired object
+                        // Finish Grabbing the desigreen object
                         grabber.GrabGrabbable(g);
                     }
                     else {

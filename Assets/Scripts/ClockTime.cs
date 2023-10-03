@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class ClockTime : MonoBehaviour
 {
     public TMPro.TMP_Text timeText;
@@ -7,4 +6,5 @@ public class ClockTime : MonoBehaviour
     {
         timeText.text = System.DateTime.Now.ToString("h:mm:ss tt  dd/MMM/yyyy");
     }
+
 }

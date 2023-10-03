@@ -8,7 +8,7 @@ namespace BNG {
 
     [CustomEditor(typeof(AutoPoser))]
     [CanEditMultipleObjects]
-    public class AutoPoserEditor : Editor {
+    public class AutoPosegreenitor : Editor {
        
         // Auto Pose properties
         SerializedProperty openHandPose;

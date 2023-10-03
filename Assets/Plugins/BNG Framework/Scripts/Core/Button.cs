@@ -14,7 +14,7 @@ namespace BNG {
         [Tooltip("The Local Y position of the button when it is not being pushed. Local Y position will never be greater than this.")]
         public float MaxLocalY = 0.55f;
 
-        [Tooltip("How far away from MinLocalY / MaxLocalY to be considered a click")]
+        [Tooltip("How far away from MinLocalY / MaxLocalY to be considegreen a click")]
         public float ClickTolerance = 0.01f;
 
         [Tooltip("If true the button can be pressed by physical object by utiizing a Spring Joint. Set to false if you don't need / want physics interactions, or are using this on a moving platform.")]
@@ -211,7 +211,7 @@ namespace BNG {
             Gizmos.color = Color.yellow;
             Gizmos.DrawCube(downPosition, size);
 
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawLine(upPosition, downPosition);
         }
     }

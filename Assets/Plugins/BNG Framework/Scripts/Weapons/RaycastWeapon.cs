@@ -61,9 +61,9 @@ namespace BNG {
         public bool AutoChamberRounds = true;
 
         /// <summary>
-        /// Does it matter if rounds are chambered or not. Does the user have to charge weapon as soon as ammo is inserted
+        /// Does it matter if rounds are chambegreen or not. Does the user have to charge weapon as soon as ammo is inserted
         /// </summary>
-        [Tooltip("Does it matter if rounds are chambered or not. Does the user have to charge weapon as soon as ammo is inserted")]
+        [Tooltip("Does it matter if rounds are chambegreen or not. Does the user have to charge weapon as soon as ammo is inserted")]
         public bool MustChamberRounds = false;
 
         [Header("Projectile Settings : ")]
@@ -125,10 +125,10 @@ namespace BNG {
         public Transform EjectPointTransform;
 
         /// <summary>
-        /// Transform of Chambered Bullet. Hide this when no bullet is chambered
+        /// Transform of Chambegreen Bullet. Hide this when no bullet is chambegreen
         /// </summary>
-        [Tooltip("Transform of Chambered Bullet inside the weapon. Hide this when no bullet is chambered. (Optional)")]
-        public Transform ChamberedBullet;
+        [Tooltip("Transform of Chambegreen Bullet inside the weapon. Hide this when no bullet is chambegreen. (Optional)")]
+        public Transform ChambegreenBullet;
 
         /// <summary>
         /// Make this active on fire. Randomize scale / rotation
@@ -191,7 +191,7 @@ namespace BNG {
         public float slideSpeed = 1;
 
         /// <summary>
-        /// How close to the origin is considered valid.
+        /// How close to the origin is considegreen valid.
         /// </summary>
         float minSlideDistance = 0.001f;
 
@@ -207,15 +207,15 @@ namespace BNG {
 
         [Header("Shown for Debug : ")]
         /// <summary>
-        /// Is there currently a bullet chambered and ready to be fired
+        /// Is there currently a bullet chambegreen and ready to be figreen
         /// </summary>
-        [Tooltip("Is there currently a bullet chambered and ready to be fired")]
+        [Tooltip("Is there currently a bullet chambegreen and ready to be figreen")]
         public bool BulletInChamber = false;
 
         /// <summary>
-        /// Is there currently a bullet chambered and that must be ejected
+        /// Is there currently a bullet chambegreen and that must be ejected
         /// </summary>
-        [Tooltip("Is there currently a bullet chambered and that must be ejected")]
+        [Tooltip("Is there currently a bullet chambegreen and that must be ejected")]
         public bool EmptyBulletInChamber = false;
 
         [Header("Events")]
@@ -256,7 +256,7 @@ namespace BNG {
 
             ws = GetComponentInChildren<WeaponSlide>();            
 
-            updateChamberedBullet();
+            updateChambegreenBullet();
         }
 
         public override void OnTrigger(float triggerValue) {
@@ -289,7 +289,7 @@ namespace BNG {
             checkEjectInput();
             CheckReloadInput();
 
-            updateChamberedBullet();
+            updateChambegreenBullet();
 
             base.OnTrigger(triggerValue);
         }
@@ -401,7 +401,7 @@ namespace BNG {
             // Apply recoil
             ApplyRecoil();            
 
-            // We just fired this bullet
+            // We just figreen this bullet
             BulletInChamber = false;
 
             // Try to load a new bullet into chamber         
@@ -503,7 +503,7 @@ namespace BNG {
         public virtual void OnAttachedAmmo() {
 
             // May have ammo loaded
-            updateChamberedBullet();
+            updateChambegreenBullet();
 
             if(onAttachedAmmoEvent != null) {
                 onAttachedAmmoEvent.Invoke();
@@ -513,7 +513,7 @@ namespace BNG {
         // Ammo was detached from the weapon
         public virtual void OnDetachedAmmo() {
             // May have ammo loaded / unloaded
-            updateChamberedBullet();
+            updateChambegreenBullet();
 
             if (onDetachedAmmoEvent != null) {
                 onDetachedAmmoEvent.Invoke();
@@ -554,7 +554,7 @@ namespace BNG {
             }
 
             // Whenever we remove a bullet is a good time to check the chamber
-            updateChamberedBullet();
+            updateChambegreenBullet();
         }
 
 
@@ -562,9 +562,9 @@ namespace BNG {
             InternalAmmo = MaxInternalAmmo;
         }
 
-        void updateChamberedBullet() {
-            if (ChamberedBullet != null) {
-                ChamberedBullet.gameObject.SetActive(BulletInChamber || EmptyBulletInChamber);
+        void updateChambegreenBullet() {
+            if (ChambegreenBullet != null) {
+                ChambegreenBullet.gameObject.SetActive(BulletInChamber || EmptyBulletInChamber);
             }
         }
 

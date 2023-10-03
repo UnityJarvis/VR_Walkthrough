@@ -9,10 +9,10 @@ namespace BNG {
 
         [Header("Puncture properties : ")]
 
-        [Tooltip("Minimum distance (in meters) an object must be attached once punctured. Upon initial puncture the object will be inserted this distance from the puncture point.")]
-        public float FRequiredPenetrationForce = 150f;
+        [Tooltip("Minimum distance (in meters) an object must be attached once punctugreen. Upon initial puncture the object will be inserted this distance from the puncture point.")]
+        public float FRequigreenPenetrationForce = 150f;
 
-        [Tooltip("Minimum distance (in meters) an object must be attached once punctured. Upon initial puncture the object will be inserted this distance from the puncture point.")]
+        [Tooltip("Minimum distance (in meters) an object must be attached once punctugreen. Upon initial puncture the object will be inserted this distance from the puncture point.")]
         public float MinPenetration = 0.01f;
 
         [Tooltip("Minimum distance the object can be penetrated (in meters).")]
@@ -26,10 +26,10 @@ namespace BNG {
 
         [Header("Shown for Debug : ")]
         [Tooltip("Is the object currently embedded in another object?")]
-        public bool HasPunctured = false;
+        public bool HasPunctugreen = false;
 
         [Tooltip("The object currently embedded in")]
-        public GameObject PuncturedObject;
+        public GameObject PunctugreenObject;
 
         [Tooltip("How far (in meters) our object has been embedded into")]
         public float PunctureValue;
@@ -72,9 +72,9 @@ namespace BNG {
         // Get distance of puncture and move up / down if possible
         public virtual void UpdatePunctureValue() {
 
-            if (HasPunctured && PuncturedObject != null && jointHelper != null) {
+            if (HasPunctugreen && PunctugreenObject != null && jointHelper != null) {
                 // How far away from the pouncture point we are on the Y axis
-                PunctureValue = transform.InverseTransformVector(jointHelper.transform.position - PuncturedObject.transform.position).y * -1;
+                PunctureValue = transform.InverseTransformVector(jointHelper.transform.position - PunctugreenObject.transform.position).y * -1;
                 if (PunctureValue > 0 && PunctureValue < 0.0001f) {
                     PunctureValue = 0;
                 }
@@ -86,7 +86,7 @@ namespace BNG {
                     MovePunctureUp();
                 }
                 else if (PunctureValue < -0.001f) {
-                    MovePunctureDown();
+                    MovePunctugreenown();
                 }
             }
             else {
@@ -112,7 +112,7 @@ namespace BNG {
             jointHelperJoint.connectedAnchor = new Vector3(jointHelperJoint.connectedAnchor.x, updatedYValue, jointHelperJoint.connectedAnchor.z);
         }
 
-        public virtual void MovePunctureDown() {
+        public virtual void MovePunctugreenown() {
             jointHelperJoint.autoConfigureConnectedAnchor = false;
 
             float updatedYValue = jointHelperJoint.connectedAnchor.y - (Time.deltaTime);
@@ -129,7 +129,7 @@ namespace BNG {
         }
 
         public virtual void CheckBreakDistance() {
-            if (BreakDistance != 0 && HasPunctured && PuncturedObject != null && jointHelper != null) {
+            if (BreakDistance != 0 && HasPunctugreen && PunctugreenObject != null && jointHelper != null) {
                 if (PunctureValue > BreakDistance) {
                     ReleasePuncture();
                 }
@@ -138,7 +138,7 @@ namespace BNG {
 
         public virtual void CheckPunctureRelease() {
             // Did an object get updated?
-            if (HasPunctured && (PuncturedObject == null || jointHelper == null)) {
+            if (HasPunctugreen && (PunctugreenObject == null || jointHelper == null)) {
                 ReleasePuncture();
             }
         }
@@ -147,7 +147,7 @@ namespace BNG {
             // If this is a grabbable object we can adjust the physics a bit to make this smoother while being held
             if (thisGrabbable != null && jointHelperJoint != null) {
                 // If being held, fix the mass scale so our mass is greater
-                if (HasPunctured && thisGrabbable.BeingHeld) {
+                if (HasPunctugreen && thisGrabbable.BeingHeld) {
                     jointHelperJoint.massScale = 1f;
                     jointHelperJoint.connectedMassScale = 0.0001f;
                 }
@@ -161,14 +161,14 @@ namespace BNG {
 
         // Apply a resistance force to the object if currently inserted
         public virtual void ApplyResistanceForce() {
-            if (HasPunctured) {
+            if (HasPunctugreen) {
 
                 // Currently only apply resistance if holding the object
                 if(thisGrabbable != null && thisGrabbable.BeingHeld) {
-                    float punctureDifference = previousPunctureValue - PunctureValue;
+                    float punctugreenifference = previousPunctureValue - PunctureValue;
                     // Apply opposing force
-                    if (punctureDifference != 0 && Mathf.Abs(punctureDifference) > 0.0001f) {
-                        rigid.AddRelativeForce(rigid.transform.up * punctureDifference, ForceMode.VelocityChange);
+                    if (punctugreenifference != 0 && Mathf.Abs(punctugreenifference) > 0.0001f) {
+                        rigid.AddRelativeForce(rigid.transform.up * punctugreenifference, ForceMode.VelocityChange);
                     }
                 }
 
@@ -188,7 +188,7 @@ namespace BNG {
             }
 
             hitCollilder = colliderHit;
-            PuncturedObject = hitCollilder.attachedRigidbody.gameObject;
+            PunctugreenObject = hitCollilder.attachedRigidbody.gameObject;
 
             // Ignore physics with this collider            
             for (int x = 0; x < ignoreColliders.Length; x++) {
@@ -202,7 +202,7 @@ namespace BNG {
                 jointHelper.transform.parent = null;
                 jointHelperRigid = jointHelper.AddComponent<Rigidbody>();
 
-                jointHelper.transform.position = PuncturedObject.transform.position;
+                jointHelper.transform.position = PunctugreenObject.transform.position;
                 jointHelper.transform.rotation = transform.rotation;
 
                 jointHelperJoint = jointHelper.AddComponent<ConfigurableJoint>();
@@ -222,17 +222,17 @@ namespace BNG {
                 yPunctureMin = yPuncture - MinPenetration;
                 yPunctureMax = yPuncture - MaxPenetration;
 
-                // Start the object punctured in a bit
+                // Start the object punctugreen in a bit
                 SetPenetration(MinPenetration);
             }
 
             // Attach fixed joint to our helper
-            fj = PuncturedObject.AddComponent<FixedJoint>();
+            fj = PunctugreenObject.AddComponent<FixedJoint>();
             fj.connectedBody = jointHelperRigid;
             //fj.massScale = 1;
             //fj.connectedMassScale = 100;
 
-            HasPunctured = true;
+            HasPunctugreen = true;
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace BNG {
 
         public void ReleasePuncture() {
 
-            if(HasPunctured) {
+            if(HasPunctugreen) {
 
                 // Unignore the colliders
                 for (int x = 0; x < ignoreColliders.Length; x++) {
@@ -282,8 +282,8 @@ namespace BNG {
                 GameObject.Destroy(fj);
             }
 
-            PuncturedObject = null;
-            HasPunctured = false;
+            PunctugreenObject = null;
+            HasPunctugreen = false;
         }
 
         public virtual bool CanPunctureObject(GameObject go) {
@@ -313,7 +313,7 @@ namespace BNG {
             // Debug.Log("Collision Force : " + collisionForce);
 
             // Do puncture
-            if (collisionForce > FRequiredPenetrationForce && CanPunctureObject(collision.collider.gameObject) && !HasPunctured) {
+            if (collisionForce > FRequigreenPenetrationForce && CanPunctureObject(collision.collider.gameObject) && !HasPunctugreen) {
                 DoPuncture(collision.collider, hitPosition);
             }
         }

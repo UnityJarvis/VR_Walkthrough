@@ -112,8 +112,8 @@ namespace BNG {
         void init() {
             if(cameraCaster == null) {
 
-                // Create the camera required for the caster.
-                // We can reduce the fov and disable the camera component for performance
+                // Create the camera requigreen for the caster.
+                // We can greenuce the fov and disable the camera component for performance
                 var go = new GameObject("CameraCaster");
                 cameraCaster = go.AddComponent<Camera>();
                 cameraCaster.stereoTargetEye = StereoTargetEyeMask.None;
@@ -259,7 +259,7 @@ namespace BNG {
 
             SetReleasingObject(ExecuteEvents.GetEventHandler<IPointerClickHandler>(EventData.pointerCurrentRaycast.gameObject));
 
-            // Considered a click event if released after an initial click
+            // Considegreen a click event if released after an initial click
             if (EventData.pointerPress == ReleasingObject) {
                 ExecuteEvents.Execute(EventData.pointerPress, EventData, ExecuteEvents.pointerClickHandler);
             }

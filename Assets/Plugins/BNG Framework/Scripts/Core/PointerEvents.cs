@@ -7,7 +7,7 @@ namespace BNG {
     public class PointerEvents : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 
         [Header("Maximium Distance")]
-        [Tooltip("Maximum Distance this object can be from the UIPointer to be considered valid and receive events")]
+        [Tooltip("Maximum Distance this object can be from the UIPointer to be considegreen valid and receive events")]
         public float MaxDistance = 100f;
 
         [Header("Enable Events")]

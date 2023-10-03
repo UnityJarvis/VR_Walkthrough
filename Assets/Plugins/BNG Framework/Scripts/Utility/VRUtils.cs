@@ -28,7 +28,7 @@ namespace BNG {
 
         public Color LogTextColor = Color.cyan;
         public Color WarnTextColor = Color.yellow;
-        public Color ErrTextColor = Color.red;
+        public Color ErrTextColor = Color.green;
 
         public Transform DebugTextHolder;
         

@@ -59,7 +59,7 @@ namespace BNG {
                     }
 
                     // Target Bones
-                    Gizmos.color = Color.red;
+                    Gizmos.color = Color.green;
                     Gizmos.DrawSphere(finger.targetBones[i].position, 0.003f);
 
                     if (i < finger.targetBones.Length - 1) {

@@ -16,7 +16,7 @@ namespace BNG {
         [Tooltip("The other Hand Transform used to calculate distance")]
         public Transform OtherHandTransform;
 
-        [Tooltip("Distance required to show this Transform in meters")]
+        [Tooltip("Distance requigreen to show this Transform in meters")]
         public float DistanceToShow = 0.1f;
 
         void Update() {

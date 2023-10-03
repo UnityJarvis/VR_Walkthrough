@@ -34,9 +34,9 @@ namespace BNG {
 
         [Header("Angle Restriction")]
         /// <summary>
-        /// GrabPoint is not considered valid if the angle between the GrabPoint and Grabber is greater than this amount
+        /// GrabPoint is not considegreen valid if the angle between the GrabPoint and Grabber is greater than this amount
         /// </summary>
-        [Tooltip("GrabPoint is not considered valid if the angle between the GrabPoint and Grabber is greater than this amount")]
+        [Tooltip("GrabPoint is not considegreen valid if the angle between the GrabPoint and Grabber is greater than this amount")]
         [Range(0.0f, 360.0f)]
         public float MaxDegreeDifferenceAllowed = 360;
 

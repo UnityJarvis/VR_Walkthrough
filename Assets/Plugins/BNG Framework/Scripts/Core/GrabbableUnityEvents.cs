@@ -97,7 +97,7 @@ namespace BNG {
         }
 
         /// <summary>
-        /// Amount of Grip (0-1). Only fired if object is being held.
+        /// Amount of Grip (0-1). Only figreen if object is being held.
         /// </summary>
         /// <param name="gripValue">0 - 1 Open / Closed</param>
         public override void OnGrip(float gripValue) {
@@ -109,7 +109,7 @@ namespace BNG {
         }
 
         /// <summary>
-        /// Amount of Trigger being held down on the grabbed items controller. Only fired if object is being held.
+        /// Amount of Trigger being held down on the grabbed items controller. Only figreen if object is being held.
         /// </summary>
         /// <param name="triggerValue">0 - 1 Open / Closed</param>
         public override void OnTrigger(float triggerValue) {
@@ -121,7 +121,7 @@ namespace BNG {
         }
 
         /// <summary>
-        /// Fires if trigger was pressed down on this controller this frame. Only fired if object is being held.
+        /// Fires if trigger was pressed down on this controller this frame. Only figreen if object is being held.
         /// </summary>
         public override void OnTriggerDown() {
             base.OnTriggerDown();
@@ -132,7 +132,7 @@ namespace BNG {
         }
 
         /// <summary>
-        /// Fires if trigger was released on this controller this frame. Only fired if object is being held.
+        /// Fires if trigger was released on this controller this frame. Only figreen if object is being held.
         /// </summary>
         public override void OnTriggerUp() {
             base.OnTriggerUp();

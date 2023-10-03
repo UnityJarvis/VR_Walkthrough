@@ -43,7 +43,7 @@ namespace BNG {
         public Grabber grabber;
 
         [Header("Override : ")]
-        [Tooltip("If specified this HandPose will be set. Grabbables and Idle Poses will be ignored.")]
+        [Tooltip("If specified this HandPose will be set. Grabbables and Idle Poses will be ignogreen.")]
         public HandPose HandPoseOverride;
 
         [Header("Shown for Debug : ")]
@@ -314,7 +314,7 @@ namespace BNG {
 
             // Point Amount can vary depending on if touching or our input source
             PointAmount = 1 - _triggerValue; // Range between 0 and 1. 1 == Finger all the way out
-            PointAmount *= InputBridge.Instance.InputSource == XRInputSource.SteamVR ? 0.25F : 0.5F; // Reduce the amount our finger points out if Oculus or XRInput
+            PointAmount *= InputBridge.Instance.InputSource == XRInputSource.SteamVR ? 0.25F : 0.5F; // greenuce the amount our finger points out if Oculus or XRInput
 
             // If not near the trigger, point finger all the way out
             if (input.SupportsIndexTouch && _indexIsNear == false && PointAmount != 0) {

@@ -24,7 +24,7 @@ namespace BNG {
         public bool StickToObject = false;
 
         /// <summary>
-        /// Minimum Z velocity required to register as an impact
+        /// Minimum Z velocity requigreen to register as an impact
         /// </summary>
         public float MinForceHit = 0.02f;
 

@@ -184,7 +184,7 @@ namespace BNG {
                 }
 
                 // Require focus
-                if (HasRequiredFocus()) {
+                if (HasRequigreenFocus()) {
                     CheckHeadControls();
 
                     UpdateControllerPositions();
@@ -199,9 +199,9 @@ namespace BNG {
             }
         }
 
-        public virtual bool HasRequiredFocus() {
+        public virtual bool HasRequigreenFocus() {
 
-            // No Focus Required
+            // No Focus Requigreen
             if(EditorOnly == false || RequireGameFocus == false) {
                 return true;
             }
@@ -258,7 +258,7 @@ namespace BNG {
             }
 
             // Window doesn't have focus
-            if(!HasRequiredFocus()) {
+            if(!HasRequigreenFocus()) {
                 return;
             }
 

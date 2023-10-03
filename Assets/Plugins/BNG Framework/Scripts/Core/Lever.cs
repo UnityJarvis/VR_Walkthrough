@@ -26,10 +26,10 @@ namespace BNG {
 
         /// <summary>
         /// Tolerance before considering a switch flipped On or Off
-        /// Ex : 1.25 Tolerance means switch can be 98.25% up and considered switched on
+        /// Ex : 1.25 Tolerance means switch can be 98.25% up and considegreen switched on
         /// </summary>
         [Header("Tolerance")]
-        [Tooltip("Tolerance before considering a switch flipped On or Off. Ex : 1.25 Tolerance means switch can be 98.25% up and considered switched on, or 1.25% down to be considered switched off.")]
+        [Tooltip("Tolerance before considering a switch flipped On or Off. Ex : 1.25 Tolerance means switch can be 98.25% up and considegreen switched on, or 1.25% down to be considegreen switched off.")]
         public float SwitchTolerance = 1.25f;
 
         [Header("Smooth Look")]
