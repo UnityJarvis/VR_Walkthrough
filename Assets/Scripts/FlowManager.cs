@@ -1,3 +1,4 @@
+using BNG;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,7 @@ public class FlowManager : MonoBehaviour
 {
     public TMPro.TMP_Text stepsText;
     public QuestButtonsHighlighter qt;
-    public Button StartButton;
+    public UnityEngine.UI.Button StartButton;
 
     [Space(20)]
     [Header("Balloon and COnfetti")]
@@ -22,6 +23,11 @@ public class FlowManager : MonoBehaviour
     [Header("UI Right Controller")]
     public Image rightThumbstick;
     public Image a,b,rightGrip,rightTrigger;
+
+    [Space(20)]
+    [Header("Reference required for Game Flow")]
+    public GameObject Table;
+    public GameObject PlayerControllerPlayerRotation,backCanvas;
     void Start()
     {
         leftBalloon.SetActive(false);
@@ -86,12 +92,15 @@ public class FlowManager : MonoBehaviour
             // For Right Joystick
             case 3:
                 ImageColourResetter();
+                RotatePlayer();
                 rightThumbstick.GetComponentInParent<Image>().color = GameManager.instance.color;
                 if(BNG.InputBridge.Instance.RightThumbstickAxis.magnitude != 0){GameManager.instance.index = 4;}
                 break;
             // For Left Joystick
             case 4:
                 ImageColourResetter();
+                Table.SetActive(true);
+                PlayerControllerPlayerRotation.GetComponent<LocomotionManager>().enabled = true;
                 leftThumbstick.GetComponentInParent<Image>().color = GameManager.instance.color;
                 if(BNG.InputBridge.Instance.LeftThumbstickAxis.magnitude != 0){GameManager.instance.index = 5;}
                 break;
@@ -136,5 +145,19 @@ public class FlowManager : MonoBehaviour
         rightTrigger.color = Color.white;
         rightGrip.color = Color.white;
         rightThumbstick.color = Color.white;
+    }
+
+    bool toRotate = true;
+    void RotatePlayer()
+    {
+        if(toRotate)
+            {
+                backCanvas.SetActive(true);
+                PlayerControllerPlayerRotation.GetComponent<PlayerRotation>().enabled = true;
+                PlayerControllerPlayerRotation.transform.rotation = Quaternion.Euler(0,180,0);
+                toRotate = false;
+            }
+        else
+            return;
     }
 }
