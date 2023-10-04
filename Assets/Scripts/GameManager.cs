@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour
                 ResetHandControllerButtonMaterialColor();
                 MaterialSwitcher(ButtonsMesh.instance.handControllerMesh[8], color);
                 break;
+            case 9:
+                Debug.Log("Resetting Index to 0");
+                index = 0;
+                break;
 
             default:
 
