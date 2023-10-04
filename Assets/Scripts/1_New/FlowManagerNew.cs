@@ -33,7 +33,6 @@ public class FlowManagerNew : MonoBehaviour
     }
     void Update()
     {
-        
         IndexSetter();
     }
 

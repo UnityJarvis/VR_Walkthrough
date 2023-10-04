@@ -7191,6 +7191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConfettiExplosionMix
       objectReference: {fileID: 0}
+    - target: {fileID: 1620116211597326, guid: 1805b6a59d8bf1e4fabb266117b0e2cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4931248852880448, guid: 1805b6a59d8bf1e4fabb266117b0e2cb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32569,13 +32573,14 @@ GameObject:
   m_Component:
   - component: {fileID: 489728353729921478}
   - component: {fileID: 9187461137256463602}
+  - component: {fileID: 9187461137256463603}
   m_Layer: 0
   m_Name: balloon_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &2691746817614493631
 GameObject:
   m_ObjectHideFlags: 0
@@ -96105,12 +96110,32 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: 4430756767128738292, guid: f740355e27d32ed42a4be053ad731142, type: 3}
   m_Bones: []
   m_BlendShapeWeights:
-  - 100
+  - 0
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0.00030879024, y: 0.023428055, z: -0.00009561144}
     m_Extent: {x: 0.025109261, y: 0.033465456, z: 0.023314703}
   m_DirtyAABB: 0
+--- !u!95 &9187461137256463603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691601799329222544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6aa7da0504042a4fb08d4be8362526f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &9189487249894719808
 Transform:
   m_ObjectHideFlags: 0
