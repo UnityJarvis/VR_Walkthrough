@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (MeshRenderer item in ButtonsMesh.instance.handControllerMesh)
             {
-                MaterialResetter(item);
+                //MaterialResetter(item);
             }
             index++;
         }

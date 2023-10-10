@@ -17,6 +17,7 @@ public class PokeBall : MonoBehaviour
             spawnedPokemon.transform.position= this.transform.position;
             GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject,2f);
+            Destroy(spawnedPokemon,6f);
         }
     }
 }

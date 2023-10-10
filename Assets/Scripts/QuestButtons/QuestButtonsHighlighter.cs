@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class QuestButtonsHighlighter : MonoBehaviour
 {
@@ -73,7 +71,7 @@ public class QuestButtonsHighlighter : MonoBehaviour
             
             foreach (MeshRenderer item in ButtonsMesh.instance.displayControllerMesh)
             {
-                GameManager.instance.MaterialResetter(item);
+                //GameManager.instance.MaterialResetter(item);
             }           
         }
     }

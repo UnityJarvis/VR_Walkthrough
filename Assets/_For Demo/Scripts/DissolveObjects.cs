@@ -4,7 +4,8 @@ public class DissolveObjects : MonoBehaviour
 {
     public Renderer[] render;
     public Material[] mat;
-    private void Start()
+
+    private void Awake()
     {
         render = GetComponentsInChildren<Renderer>();
 
@@ -13,18 +14,21 @@ public class DissolveObjects : MonoBehaviour
         {
             mat[i] = render[i].material;
         }
-        DissolveManager.instance.ResetDissolve(mat);
+       // DissolveManager.instance.ResetDissolve(mat);
     }
+
+    public bool isActive;
     private void Update()
     {
         DissolveUI();
-        if (Input.GetKey(KeyCode.H))
+        switch (isActive)
         {
-            DissolveManager.instance.Dissolve(mat);
-        }
-        if (Input.GetKey(KeyCode.J))
-        {
-            DissolveManager.instance.UnDissolve(mat);
+            case true:                
+                DissolveManager.instance.UnDissolve(mat);
+                break;
+            case false:
+                DissolveManager.instance.Dissolve(mat);
+                break;
         }
     }
 

@@ -1,3 +1,4 @@
+using BNG;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,7 @@ public class FlowManagerNew : MonoBehaviour
 
     [Space(20)]
     [Header("Balloon and Confetti")]
-    public GameObject balloon;
-    public GameObject confetti;
+    public BalloonAndConfetti bc;
 
     #region Controllers UI Button References
 
@@ -26,43 +26,49 @@ public class FlowManagerNew : MonoBehaviour
 
     #endregion
 
+    public PlayerRotation pr;
+    public LocomotionManager lm;
+    public GameObject Tablee;
+    public DissolveObjects db;
+    public RectTransform questCanvas;
+
+    public GameObject bngButton;
+
+    [Space(20)]
+    public GameObject playerControllersLeft;
+    public GameObject playerControllersRight;
+    public GameObject questCanvasUi;
+
     void Start()
     {
-        balloon.SetActive(false);
-        confetti.SetActive(false);
+        bc.balloon.SetActive(false);
+        bc.confetti.SetActive(false);
     }
     void Update()
     {
         IndexSetter();
     }
 
-    void BalloonAndConfetti()
-    {
-        if(BNG.InputBridge.Instance.AButtonDown || BNG.InputBridge.Instance.XButtonDown)
-        {
-            balloon.SetActive(true);
-            balloon.GetComponent<SkinnedMeshRenderer>().material.color = new Color(Random.Range(0,255),Random.Range(0,255),Random.Range(0,255));
-            confetti.SetActive(false);
-        }
-        if(BNG.InputBridge.Instance.BButtonDown || BNG.InputBridge.Instance.YButtonDown)
-        {
-            balloon.SetActive(false);
-            confetti.SetActive(true);
-        }
-    }
+    
     void IndexSetter()
     {
         switch(GameManager.instance.index)
         {
             case 0:
                 ImageColourResetter();
+                playerControllersLeft.SetActive(false);
+                playerControllersRight.SetActive(false);
+                questCanvasUi.SetActive(false);
                 break;
             // For Button A and X
             case 1:
+                playerControllersLeft.SetActive(true);
+                playerControllersRight.SetActive(true);
+                questCanvasUi.SetActive(true);
                 ImageColourResetter();
                 a.color = GameManager.instance.color;
                 x.color = GameManager.instance.color;
-                BalloonAndConfetti();
+                bc.BalloonAndConfettiAction();
                 if(BNG.InputBridge.Instance.AButtonDown || BNG.InputBridge.Instance.XButtonDown){GameManager.instance.index = 2;}
                 break;
             // For Button B and Y
@@ -70,19 +76,32 @@ public class FlowManagerNew : MonoBehaviour
                 ImageColourResetter();
                 b.color = GameManager.instance.color;
                 y.color = GameManager.instance.color;
-                BalloonAndConfetti();
+                bc.BalloonAndConfettiAction();
                 if(BNG.InputBridge.Instance.BButtonDown || BNG.InputBridge.Instance.YButtonDown){GameManager.instance.index = 3;}
                 break;
             // For Right Joystick
             case 3:
                 ImageColourResetter();
                 rightThumbstick.GetComponentInParent<Image>().color = GameManager.instance.color;
-                if(BNG.InputBridge.Instance.RightThumbstickAxis.magnitude != 0){GameManager.instance.index = 4;}
+                pr.enabled = true;
+
+
+                if(BNG.InputBridge.Instance.RightThumbstickAxis.magnitude != 0)
+                {
+                    GameManager.instance.index = 4;
+                    
+                    pr.gameObject.transform.rotation = Quaternion.Euler(0,0,0);
+                    questCanvas.localPosition = new Vector3(0f,1.7f,3.5f);
+                    questCanvas.rotation = Quaternion.Euler(0,0,0);
+                }
                 break;
             // For Left Joystick
             case 4:
                 ImageColourResetter();
                 leftThumbstick.GetComponentInParent<Image>().color = GameManager.instance.color;
+                lm.enabled = true;
+                Tablee.SetActive(true);
+                db.isActive = true;
                 if(BNG.InputBridge.Instance.LeftThumbstickAxis.magnitude != 0){GameManager.instance.index = 5;}
                 break;
             // Right Trigger
@@ -101,19 +120,30 @@ public class FlowManagerNew : MonoBehaviour
             case 7:
                 ImageColourResetter();
                 rightGrip.color = GameManager.instance.color;
+
                 if(BNG.InputBridge.Instance.RightGrip > 0){GameManager.instance.index = 8;}
+
                 break;
             // Left Grip
             case 8:
                 ImageColourResetter();
+                handModal.enabled = true;
                 leftGrip.color = GameManager.instance.color;
-                if(BNG.InputBridge.Instance.LeftGrip > 0){GameManager.instance.index = 0; }
+                leftHandController_Player.SetActive(false);
+                rightHandController_Player.SetActive(false);
+                if(BNG.InputBridge.Instance.LeftGrip > 0)
+                {
+                    GameManager.instance.index = 0;
+                    bngButton.SetActive(true);
+                }
                 break;
             default:
                 print("Invalid Index Value");
                 break;
         }
     }
+    public HandModelSelector handModal;
+    public GameObject leftHandController_Player,rightHandController_Player;
     void ImageColourResetter()
     {
         a.color = Color.white;
