@@ -1,30 +1,16 @@
 using UnityEngine;
 public class RoboKyle : MonoBehaviour
 {
+    public static RoboKyle Instance;
+    private void Awake() { Instance = this; }
     public Texture2D[] emojis;
-    public Renderer faceRender;
     public Material faceMaterial;
     public Animator animator;
-
-    private void Start()
-    {
-        faceMaterial = faceRender.material;
-    }
-    public void AnimateRobo(string animName)
-    {
-        animator.Play(animName);
-    }
-    public void SetEmoji(Texture2D emoji)
-    {
-        faceMaterial.SetTexture("_BaseMap", emoji);
-    }
-
-    public enum RoboState
-    {
-        idle, talk, move
-    }
+    public Sounds roboVoiceOvers;
+    public void AnimateRobo(string animName) { animator.Play(animName); }
+    public void SetEmoji(Texture2D emoji) { faceMaterial.SetTexture("_BaseMap", emoji); }
+    public enum RoboState { idle, happy, talk }
     public RoboState roboState;
-
 
     private void Update()
     {
@@ -32,17 +18,15 @@ public class RoboKyle : MonoBehaviour
         {
             case RoboState.idle:
                 AnimateRobo("idle");
-                SetEmoji(emojis[0]);
+                //SetEmoji(emojis[0]);
+                break;
+            case RoboState.happy:
+                AnimateRobo("happy");
+                //SetEmoji(emojis[1]);
                 break;
             case RoboState.talk:
                 AnimateRobo("talk");
-                SetEmoji(emojis[1]);
-                break;
-            case RoboState.move:
-                AnimateRobo("move");
-                SetEmoji(emojis[2]);
-                break;
-            default:
+                //SetEmoji(emojis[2]);
                 break;
         }
     }

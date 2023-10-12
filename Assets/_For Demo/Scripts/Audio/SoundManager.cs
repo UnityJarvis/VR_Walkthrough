@@ -19,13 +19,13 @@ public class SoundManager : MonoBehaviour
     {
         if(audioSource.isPlaying)
         {
-            print("audio stooped ");
+          //  print("audio stooped ");
             audioSource.Stop();
         }
 
         if (!audioSource.isPlaying)
         {
-            print("audio playing ");
+           // print("audio playing ");
             audioSource.PlayOneShot(_clip);
         }
     }

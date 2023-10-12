@@ -4,7 +4,6 @@ using UnityEngine;
 public class sound
 {
     public string name;
-    public string description;
     public AudioClip clip;
 }
 [CreateAssetMenu(fileName = "AudioClips", menuName = "Scriptable/Sounds", order = 1)]

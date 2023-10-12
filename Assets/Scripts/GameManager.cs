@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-        {
+        {  
             foreach (MeshRenderer item in ButtonsMesh.instance.handControllerMesh)
             {
                 //MaterialResetter(item);

@@ -1,4 +1,5 @@
 using BNG;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,26 +40,35 @@ public class FlowManagerNew : MonoBehaviour
     public GameObject playerControllersRight;
     public GameObject questCanvasUi;
 
+    [Space(20)]
+    public ChibiDialogueAudio cb;
+    public Animator roboParent;
+    public BNG.Grabber leftHandGrabber, rightHandGrabber;
+
     void Start()
     {
         bc.balloon.SetActive(false);
         bc.confetti.SetActive(false);
+
+        playerControllersLeft.SetActive(false);
+        playerControllersRight.SetActive(false);
+        questCanvasUi.SetActive(false);
+
+        StartCoroutine(DisplayRoboAfterDelay());
     }
     void Update()
     {
         IndexSetter();
     }
-
-    
     void IndexSetter()
     {
         switch(GameManager.instance.index)
         {
             case 0:
                 ImageColourResetter();
-                playerControllersLeft.SetActive(false);
-                playerControllersRight.SetActive(false);
-                questCanvasUi.SetActive(false);
+                //playerControllersLeft.SetActive(false);
+                //playerControllersRight.SetActive(false);
+                //questCanvasUi.SetActive(false);
                 break;
             // For Button A and X
             case 1:
@@ -69,7 +79,12 @@ public class FlowManagerNew : MonoBehaviour
                 a.color = GameManager.instance.color;
                 x.color = GameManager.instance.color;
                 bc.BalloonAndConfettiAction();
-                if(BNG.InputBridge.Instance.AButtonDown || BNG.InputBridge.Instance.XButtonDown){GameManager.instance.index = 2;}
+                if(BNG.InputBridge.Instance.AButtonDown || BNG.InputBridge.Instance.XButtonDown)
+                {
+                    GameManager.instance.index = 2;
+                    cb.dialogueIndex = 6;
+                    cb.toPlay = true;
+                }
                 break;
             // For Button B and Y
             case 2:
@@ -77,7 +92,12 @@ public class FlowManagerNew : MonoBehaviour
                 b.color = GameManager.instance.color;
                 y.color = GameManager.instance.color;
                 bc.BalloonAndConfettiAction();
-                if(BNG.InputBridge.Instance.BButtonDown || BNG.InputBridge.Instance.YButtonDown){GameManager.instance.index = 3;}
+                if(BNG.InputBridge.Instance.BButtonDown || BNG.InputBridge.Instance.YButtonDown)
+                {
+                    GameManager.instance.index = 3;
+                    cb.dialogueIndex = 7;
+                    cb.toPlay = true;
+                }
                 break;
             // For Right Joystick
             case 3:
@@ -89,10 +109,13 @@ public class FlowManagerNew : MonoBehaviour
                 if(BNG.InputBridge.Instance.RightThumbstickAxis.magnitude != 0)
                 {
                     GameManager.instance.index = 4;
+                    cb.dialogueIndex = 8;
+                    cb.toPlay = true;
                     
                     pr.gameObject.transform.rotation = Quaternion.Euler(0,0,0);
                     questCanvas.localPosition = new Vector3(0f,1.7f,3.5f);
                     questCanvas.rotation = Quaternion.Euler(0,0,0);
+                    roboParent.Play("Move");
                 }
                 break;
             // For Left Joystick
@@ -102,26 +125,47 @@ public class FlowManagerNew : MonoBehaviour
                 lm.enabled = true;
                 Tablee.SetActive(true);
                 db.isActive = true;
-                if(BNG.InputBridge.Instance.LeftThumbstickAxis.magnitude != 0){GameManager.instance.index = 5;}
+                if(BNG.InputBridge.Instance.LeftThumbstickAxis.magnitude != 0)
+                {
+                    GameManager.instance.index = 5;
+                    cb.dialogueIndex = 9;
+                    cb.toPlay = true;
+                }
                 break;
             // Right Trigger
             case 5:
                 ImageColourResetter();
                 rightTrigger.color = GameManager.instance.color;
-                if(BNG.InputBridge.Instance.RightTrigger > 0){GameManager.instance.index = 6;}
+                if(BNG.InputBridge.Instance.RightTrigger > 0)
+                {
+                    GameManager.instance.index = 7;
+                    cb.dialogueIndex = 10;
+                    cb.toPlay = true;
+                }
                 break;
             // Left Trigger
             case 6:
                 ImageColourResetter();
                 leftTrigger.color = GameManager.instance.color;
-                if(BNG.InputBridge.Instance.LeftTrigger > 0){GameManager.instance.index = 7;}
+                if(BNG.InputBridge.Instance.LeftTrigger > 0)
+                {
+                    GameManager.instance.index = 7; //Skip to 7
+                    cb.dialogueIndex++;
+                    cb.toPlay = true;
+                }
                 break;
             // Right Grip
             case 7:
                 ImageColourResetter();
                 rightGrip.color = GameManager.instance.color;
 
-                if(BNG.InputBridge.Instance.RightGrip > 0){GameManager.instance.index = 8;}
+                if((BNG.InputBridge.Instance.RightGrip > 0 || BNG.InputBridge.Instance.LeftTrigger > 0)
+                    && (leftHandGrabber.HeldGrabbable != null || rightHandGrabber.HeldGrabbable != null))
+                {
+                    GameManager.instance.index = 10;
+                    //cb.dialogueIndex = 10;
+                    //cb.toPlay = true;
+                }
 
                 break;
             // Left Grip
@@ -134,6 +178,8 @@ public class FlowManagerNew : MonoBehaviour
                 if(BNG.InputBridge.Instance.LeftGrip > 0)
                 {
                     GameManager.instance.index = 0;
+                    cb.dialogueIndex++;
+                    cb.toPlay = true;
                     bngButton.SetActive(true);
                 }
                 break;
@@ -156,6 +202,12 @@ public class FlowManagerNew : MonoBehaviour
         rightTrigger.color = Color.white;
         rightGrip.color = Color.white;
         rightThumbstick.color = Color.white;
+    }
+
+    IEnumerator DisplayRoboAfterDelay()
+    {
+        yield return new WaitForSeconds(10);
+        cb.gameObject.SetActive(true);
     }
 
 }
