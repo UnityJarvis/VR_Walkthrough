@@ -10,24 +10,24 @@ public class RoboKyle : MonoBehaviour
     public void AnimateRobo(string animName) { animator.Play(animName); }
     public void SetEmoji(Texture2D emoji) { faceMaterial.SetTexture("_BaseMap", emoji); }
     public enum RoboState { idle, happy, talk }
-    public RoboState roboState;
+    //public RoboState roboState;
 
-    private void Update()
-    {
-        switch (roboState)
-        {
-            case RoboState.idle:
-                AnimateRobo("idle");
-                //SetEmoji(emojis[0]);
-                break;
-            case RoboState.happy:
-                AnimateRobo("happy");
-                //SetEmoji(emojis[1]);
-                break;
-            case RoboState.talk:
-                AnimateRobo("talk");
-                //SetEmoji(emojis[2]);
-                break;
-        }
-    }
+    //private void Update()
+    //{
+    //    switch (roboState)
+    //    {
+    //        case RoboState.idle:
+    //            AnimateRobo("idle");
+    //            //SetEmoji(emojis[0]);
+    //            break;
+    //        case RoboState.happy:
+    //            AnimateRobo("happy");
+    //            //SetEmoji(emojis[1]);
+    //            break;
+    //        case RoboState.talk:
+    //            AnimateRobo("talk");
+    //            //SetEmoji(emojis[2]);
+    //            break;
+    //    }
+    //}
 }

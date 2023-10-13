@@ -159,10 +159,17 @@ public class FlowManagerNew : MonoBehaviour
                 ImageColourResetter();
                 rightGrip.color = GameManager.instance.color;
 
+
+
                 if((BNG.InputBridge.Instance.RightGrip > 0 || BNG.InputBridge.Instance.LeftTrigger > 0)
                     && (leftHandGrabber.HeldGrabbable != null || rightHandGrabber.HeldGrabbable != null))
                 {
                     GameManager.instance.index = 10;
+
+                    handModal.enabled = true;
+                    leftGrip.color = GameManager.instance.color;
+                    leftHandController_Player.SetActive(false);
+                    rightHandController_Player.SetActive(false);
                     //cb.dialogueIndex = 10;
                     //cb.toPlay = true;
                 }
@@ -206,7 +213,7 @@ public class FlowManagerNew : MonoBehaviour
 
     IEnumerator DisplayRoboAfterDelay()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
         cb.gameObject.SetActive(true);
     }
 

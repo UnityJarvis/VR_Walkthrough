@@ -18,7 +18,6 @@ public class PokeBall : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             Destroy(this.gameObject,2f);
             Destroy(spawnedPokemon,6f);
-            
         }
     }
 }

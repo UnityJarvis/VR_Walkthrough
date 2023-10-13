@@ -7,10 +7,10 @@ public class GroundCheck : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(i == 0)
-        if (collision.collider.tag == "PokeBall")
+        if(i == 0 && collision.collider.tag == "PokeBall")
         {
-            chibiDialogueAudio.dialogueIndex = 12;
+            SoundManager.instance.PlayClipOneShot(chibiDialogueAudio.roboAudiosScribtableObject.GetClip("welldone"));
+            RoboKyle.Instance.AnimateRobo("happy");
             i = 1;
         }
     }
