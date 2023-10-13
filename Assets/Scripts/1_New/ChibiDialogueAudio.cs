@@ -66,29 +66,30 @@ public class ChibiDialogueAudio : MonoBehaviour
               //  if (incrementCheck) { GameManager.instance.index++; incrementCheck = false; }
                 break;
             case 5:
-                TriggerChibiDialogue("balloonspawn");
+                TriggerChibiDialogue("balloonspawn",4);
 
                 break;
             case 6:
-                TriggerChibiDialogue("ballonpop");
+                TriggerChibiDialogue("ballonpop", 4);
                 break;
             case 7:
-                TriggerChibiDialogue("rotate");
+                TriggerChibiDialogue("rotate", 4);
                 break;
             case 8:
-                TriggerChibiDialogue("table");
+                //TriggerChibiDialogue("table",6);
+                StartCoroutine(SpecialTableCase());
                 break;
             case 9:
-                TriggerChibiDialogue("monitor");
+                TriggerChibiDialogue("monitor", 4);
                 break;
             case 10:
-                TriggerChibiDialogue("basketball");
+                TriggerChibiDialogue("basketball",8);
                 break;
             case 11:
-                TriggerChibiDialogue("monsterball");
+                TriggerChibiDialogue("monsterball", 4);
                 break;
             case 12:
-                TriggerChibiDialogue("welldone");
+                TriggerChibiDialogue("welldone",4);
                 break;
             default:
 
@@ -96,34 +97,40 @@ public class ChibiDialogueAudio : MonoBehaviour
         }
     }
 
-    public void TriggerChibiDialogue(string dialoGueNames)
+    public void TriggerChibiDialogue(string dialoGueNames,int delayTime)
     {
         if (toPlay)
-            StartCoroutine(PlayDialogue(dialoGueNames));
+            StartCoroutine(PlayDialogue(dialoGueNames,delayTime));
     }
 
-    IEnumerator PlayDialogue(string dialoGueNames)
+    IEnumerator PlayDialogue(string dialoGueNames,int delayTime)
     {
         toPlay = false;
         SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip(dialoGueNames));
-        yield return new WaitForSeconds(5);
-        StopAllCoroutines();
+        yield return new WaitForSeconds(delayTime);
+        StopCoroutine(PlayDialogue(dialoGueNames, delayTime));
     }
 
+    IEnumerator SpecialTableCase()
+    {
+        yield return new WaitForSeconds(2);
+        TriggerChibiDialogue("table", 6);
+        StopCoroutine(SpecialTableCase());
+    }
     IEnumerator DelaySound()
     {
         SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("welcome"));
         yield return new WaitForSeconds(5f);
         SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("topics"));
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
+        SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("familiar"));
+        incrementCheck = true;
+        yield return new WaitForSeconds(7f);
         SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("controller"));
         flowmanagerN.playerControllersLeft.SetActive(true);
         flowmanagerN.playerControllersRight.SetActive(true);
         flowmanagerN.questCanvasUi.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("familiar"));
-        incrementCheck = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         SoundManager.instance.PlayAudio(roboAudiosScribtableObject.GetClip("highlight"));
         yield return new WaitForSeconds(2f);
         if (incrementCheck) { GameManager.instance.index++; incrementCheck = false; }

@@ -3490,8 +3490,8 @@ RectTransform:
   m_GameObject: {fileID: 698665811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6469296101257737649}
   m_RootOrder: 2
@@ -8310,6 +8310,22 @@ PrefabInstance:
     - target: {fileID: 1173539464, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173539464, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173539464, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173539464, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173539464, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1173539465, guid: 2cd2b7743aef4f441b08bbf039babe9b, type: 3}
       propertyPath: m_fontSize
@@ -42027,7 +42043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
